@@ -46,38 +46,28 @@ export default function Benefits(
 
     return (
       <div
-        class={`${
-          reverse ? "bg-primary text-primary-content p-4 lg:px-8 lg:py-4" : ""
-        } flex gap-4 ${
-          benefitLayout == "piledup" ? "flex-col items-center text-center" : ""
-        } ${
-          showDivider && benefitLayout !== "piledup"
-            ? "border-b border-neutral-300"
-            : ""
-        } ${showDivider ? "pb-4 lg:pr-8 lg:border-r lg:border-b-0" : ""} ${
-          showDivider && !reverse ? "lg:pb-0" : ""
-        }`}
+        class="flex items-center"
       >
-        <div class="flex-none">
+        <div class="flex-none bg-[#7c91c8] rounded-[100%]">
           <Icon
             id={benefit.icon}
-            class={reverse ? "text-base-100" : "text-primary"}
+            class={"text-[#ffffff]"}
             width={36}
             height={36}
             strokeWidth={0.01}
             fill="currentColor"
           />
         </div>
-        <div class="flex-auto flex flex-col gap-1 lg:gap-2">
+        <div class="flex-auto flex flex-col ml-[10px]">
           <div
-            class={`text-base lg:text-xl leading-7 ${
+            class={` text-[#585858] font-sans text-[13px] font-[700] ${
               reverse ? "text-base-100" : "text-base-content"
             }`}
           >
             {benefit.label}
           </div>
           <p
-            class={`text-sm leading-5 ${
+            class={`text-[#585858] font-sans text-[13px] ${
               reverse ? "text-base-100" : "text-neutral"
             } ${benefitLayout == "piledup" ? "hidden lg:block" : ""}`}
           >

@@ -7,7 +7,7 @@ import type { ImageWidget } from "apps/admin/widgets.ts";
 
 export interface Category {
   tag?: string;
-  label: string;
+  label?: string;
   description?: string;
   href?: string;
   image?: ImageWidget;
@@ -95,7 +95,7 @@ function CategoryList(props: Props) {
         ) => (
           <Slider.Item
             index={index}
-            class="flex flex-col gap-4 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
+            class="flex flex-col gap-2 carousel-item first:pl-6 sm:first:pl-0 last:pr-6 sm:last:pr-0"
           >
             <a
               href={href}
@@ -117,8 +117,8 @@ function CategoryList(props: Props) {
                       class="card w-full"
                       src={image}
                       alt={description || label || tag}
-                      width={160}
-                      height={195}
+                      width={570}
+                      height={295}
                       loading="lazy"
                     />
                   </figure>

@@ -48,33 +48,34 @@ function Navbar({ items, searchbar, logo }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
-        <div class="flex-none w-44">
+      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 pl-2 pr-6 w-[1280px] mx-auto">
+        <div class="w-[250px]">
           {logo && (
             <a
               href="/"
               aria-label="Store logo"
-              class="block px-4 py-3 w-[160px]"
+              class="block w-full"
             >
-              <Image src={logo.src} alt={logo.alt} width={126} height={16} />
+              <Image src={logo.src} alt={logo.alt} width={247} height={52} class="w-full h-auto" />
             </a>
           )}
         </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <SearchButton />
+        <div class="w-full flex items-center space-x-4 gap-2">
+          {/* <SearchButton /> */}
           <Searchbar searchbar={searchbar} />
           <a
-            class="btn btn-circle btn-sm btn-ghost"
+            class="w-[15%] font-sans font-light flex items-center text-[13px]"
             href="/login"
             aria-label="Log in"
           >
-            <Icon id="User" size={24} strokeWidth={0.4} />
+            <Icon id="User" size={40} strokeWidth={0.4} class="flex items-center"/>
+            <div class="flex flex-col">
+              Olá visitante
+              <span class="font-bold text-[#7c91c8]">Entrar </span>
+            </div>
           </a>
-          <a
-            class="btn btn-circle btn-sm btn-ghost"
+          {/* <a
+            class="btn btn-circle btn-sm btn-ghost w-15"
             href="/wishlist"
             aria-label="Wishlist"
           >
@@ -84,12 +85,15 @@ function Navbar({ items, searchbar, logo }: {
               strokeWidth={2}
               fill="none"
             />
-          </a>
-          {platform === "vtex" && <CartButtonVTEX />}
+          </a> */}
+          {platform === "vtex" && <div class="w-[15%] font-sans font-light flex items-center text-[13px]"><CartButtonVTEX class="w-15"/> <p>Meu carrinho</p></div>}
           {platform === "vnda" && <CartButtonVDNA />}
           {platform === "wake" && <CartButtonWake />}
           {platform === "linx" && <CartButtonLinx />}
           {platform === "shopify" && <CartButtonShopify />}
+        </div>
+        <div class="flex-auto flex justify-center">
+          {items.map((item) => <NavItem item={item} />)}
         </div>
       </div>
     </>
